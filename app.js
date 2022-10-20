@@ -23,6 +23,11 @@ app
 // set template engine
 
 app.set('view engine', 'ejs')
+
+// Route prefix
+
+app.use("", require('./Routes/routes'))
+
 //Set up default mongoose connection
 
 mongoose.connect('mongodb://localhost/crud_app', { useNewUrlParser: true });
@@ -35,13 +40,6 @@ const db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.once('open', ()=> console.log('Connected to the server'))
-
-// show home page
-
-app.get('/', (req, res)=>{
-    res.send("Hello Express-Mongo");
-    console.log('hello');
-})
 
 // Port listening
 
