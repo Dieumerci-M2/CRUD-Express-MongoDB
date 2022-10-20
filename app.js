@@ -19,6 +19,10 @@ app
         delete req.session.message;
         next();
     })
+
+// set template engine
+
+app.set('view engine', 'ejs')
 //Set up default mongoose connection
 
 mongoose.connect('mongodb://localhost/crud_app', { useNewUrlParser: true });
